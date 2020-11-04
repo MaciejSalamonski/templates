@@ -14,15 +14,15 @@ jobs:
     - name: Check out code
       uses: actions/checkout@master
     - name: Create folder - build
-      working-directory: homework/make_unique/
+      working-directory: module1/homework/make_unique
       run: mkdir build
     - name: Compile
-      working-directory: homework/make_unique/build
+      working-directory: module1/homework/make_unique
       run: |
         cmake ..
         make
     - name: Run tests
-      working-directory: homework/make_unique/build
+      working-directory: module1/homework/make_unique
       run: ./make_unique-ut
 
   valgrind:
@@ -34,13 +34,13 @@ jobs:
     - name: Valgrind Instalation
       run: sudo apt install valgrind
     - name: Create folder - build
-      working-directory: homework/make_unique/
+      working-directory: module1/homework/make_unique
       run: mkdir build
     - name: Compile
-      working-directory: homework/make_unique/build
+      working-directory: module1/homework/make_unique
       run: |
         cmake ..
         make
     - name: Run Valgrind
-      working-directory: homework/make_unique/build
+      working-directory: module1/homework/make_unique
       run: valgrind --leak-check=full ./make_unique-ut
